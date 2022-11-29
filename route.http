@@ -1,0 +1,30 @@
+POST http://localhost:4000/employees
+Content-Type: application/json
+
+{
+    "name": "Martha",
+    "age":24,
+    "department":"HR",
+    "email":"martha@test.com"
+}
+
+###
+
+GET http://localhost:4000/employees
+
+###
+
+GET http://localhost:4000/employees/63840ba204af72c061c08dde
+
+###
+DELETE http://localhost:4000/employees/637febccb0c8312f1ab40999
+
+###
+PATCH  http://localhost:4000/employees/6383b17feb680cb86fe49115
+Content-Type: application/json
+
+{
+    "age": 22,
+    "email":"mekus@tinger.net"
+}
+
