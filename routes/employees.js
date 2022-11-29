@@ -29,9 +29,8 @@ router.post('/', async (req, res) => {
 //@Get all employees
 router.get('/', async (req, res) => {
   try {
-    const employees = await Employee.find({})
-      .where('department')
-      .equals('Sales');
+    //get all employees
+    const employees = await Employee.find({});
     res.status(200).json(employees);
   } catch (err) {
     res.status(500).json({ message: err.message });

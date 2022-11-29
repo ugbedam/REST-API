@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const employeesRouter = require('./routes/employees');
 const Employee = require('./model/Employees');
 const path = require('path');
+require('dotenv').config();
 const app = express();
 
 const PORT = process.env.PORT || 4000;
