@@ -9,15 +9,18 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 //Set up mongoose connection
-const url = 'mongodb://127.0.0.1:27017/test';
-mongoose.connect(url, {
+mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('Connected to Database'));
+db.once(
+  'open',
+  () => console.log('Connected to Database'),
+  app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
+);
 
 //middlewares
 app.use(express.json());
@@ -35,5 +38,3 @@ app.get('/', async (req, res) => {
     employeesList: employees
   });
 });
-
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
